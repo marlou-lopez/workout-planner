@@ -1,9 +1,9 @@
 
-export default function Workouts() {
+export default function Settings() {
   return (
     <main>
       <h1 className="text-4xl py-4 font-extrabold">
-        Workouts
+        Settings
       </h1>
     </main>
   )

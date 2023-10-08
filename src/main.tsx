@@ -7,6 +7,8 @@ import Home from './routes/home.tsx'
 import Layout from './routes/layout.tsx'
 import Workouts from './routes/workouts.tsx'
 import { ThemeProvider } from './components/theme-provider.tsx'
+import Exercises from './routes/exercises.tsx'
+import Settings from './routes/settings.tsx'
 
 const router = createBrowserRouter([
   {
@@ -14,11 +16,19 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <Home />,
       },
       {
         path: "/workouts",
         element: <Workouts />
+      },
+      {
+        path: "/exercises",
+        element: <Exercises />
+      },
+      {
+        path: "/settings",
+        element: <Settings />
       }
     ],
     errorElement: <Error />

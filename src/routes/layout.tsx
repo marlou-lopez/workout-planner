@@ -1,14 +1,30 @@
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { ActivityIcon, DumbbellIcon, HomeIcon, SettingsIcon } from "lucide-react";
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
-const NavTabs = {
-  HOME: HomeIcon,
-  WORKOUTS: ActivityIcon,
-  EXERCISES: DumbbellIcon,
-  SETTINGS: SettingsIcon
-}
+const tabs = [
+  {
+    title: 'Home',
+    path: '/',
+    icon: HomeIcon,
+  },
+  {
+    title: 'Workouts',
+    path: '/workouts',
+    icon: ActivityIcon,
+  },
+  {
+    title: 'Exercises',
+    path: '/exercises',
+    icon: DumbbellIcon,
+  },
+  {
+    title: 'Settings',
+    path: '/settings',
+    icon: SettingsIcon,
+  },
+]
 
 type WithTooltipProps = {
   children: JSX.Element;
@@ -23,7 +39,7 @@ function WithTooltip({children, tooltipText}: WithTooltipProps) {
           {children}
         </TooltipTrigger>
         <TooltipContent>
-          <p className="capitalize">{tooltipText.toLowerCase()}</p>
+          <p className="capitalize">{tooltipText}</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
@@ -34,13 +50,17 @@ function Navigation() {
   return (
     <nav className="fixed bottom-4 w-[calc(100%-3rem)]">
       <div className="flex justify-between">
-        {Object.entries(NavTabs).map(([page, Icon]) => {
+        {tabs.map((tab) => {
           return (
-            <WithTooltip tooltipText={page}>
-              <Button variant="ghost" size="icon">
-                <Icon className="h-[1.75rem] w-[1.75rem]" />
-              </Button>
-            </WithTooltip>
+            <NavLink to={tab.path}>
+              {({ isActive }) => (
+                <WithTooltip tooltipText={tab.title}>
+                  <Button variant="ghost" className={isActive ? `border-b-2 border-b-current` : ''} size="icon">
+                    <tab.icon className="h-[1.75rem] w-[1.75rem]" />
+                  </Button>
+                </WithTooltip>
+              )}
+            </NavLink>
           )
         })}
       </div>

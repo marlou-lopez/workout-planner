@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <main>
       <div className="flex items-center justify-between">
-        <h1 className="text-5xl py-4 font-extrabold">
+        <h1 className="text-4xl py-4 font-extrabold">
           Home
         </h1>
         <ModeToggle />
