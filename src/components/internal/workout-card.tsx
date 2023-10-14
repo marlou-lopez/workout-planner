@@ -1,4 +1,4 @@
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card"
+import { Card, CardHeader } from "../ui/card"
 
 export type WorkoutCardProps = {
   name: string;
@@ -10,7 +10,7 @@ export default function WorkoutCard({name, schedule}: WorkoutCardProps) {
     <Card>
       <CardHeader>
         <div className="flex flex-col">
-          <p className="text-md font-semibold">{name}</p>
+          <p className="text-md">{name}</p>
           {schedule && (
             <p className="text-xs text-slate-400">{schedule}</p>
           )}
