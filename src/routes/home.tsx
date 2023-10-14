@@ -8,12 +8,6 @@ const TEST_WORKOUTS: WorkoutCardProps[] = [
   {
     name: "Elmer's Glute"
   },
-  {
-    name: "Legs Benedict"
-  },
-  {
-    name: "Boulder Shoulder"
-  }
 ]
 
 function CurrentDayWorkouts() {
