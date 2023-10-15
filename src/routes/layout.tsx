@@ -48,8 +48,8 @@ function WithTooltip({children, tooltipText}: WithTooltipProps) {
 
 function Navigation() {
   return (
-    <nav className="fixed bottom-4 w-[calc(100%-3rem)]">
-      <div className="flex justify-between">
+    <nav className="fixed bottom-0 w-full">
+      <div className="flex py-4 px-6 dark:bg-slate-950 bg-white justify-between">
         {tabs.map((tab) => {
           return (
             <NavLink to={tab.path}>
@@ -70,9 +70,11 @@ function Navigation() {
 
 export default function Layout() {
   return (
-    <div className="py-4 px-6">
-      <Outlet />
+    <>
+      <div className="py-4 px-6">
+        <Outlet />
+      </div>
       <Navigation />
-    </div>
+    </>
   )
 }
