@@ -1,5 +1,7 @@
 import WorkoutCard, { WorkoutCardProps } from "@/components/internal/workout-card";
 import { ModeToggle } from "@/components/mode-toggle";
+import exercises from "@/assets/exercises.json";
+import { useEffect } from "react";
 
 const TEST_WORKOUTS: WorkoutCardProps[] = [
   {
@@ -25,6 +27,8 @@ function CurrentDayWorkouts() {
 }
 
 export default function Home() {
+
+  console.log("Exercises: ", exercises)
   return (
     <main>
       <div className="flex items-center justify-between">
@@ -33,7 +37,7 @@ export default function Home() {
         </h1>
         <ModeToggle />
       </div>
-      <p className="text-sm font-semibold py-6">Let's get it done today, King.</p>
+      <p className="text-sm font-semibold py-6">Let's get it done today.</p>
 
       <CurrentDayWorkouts />
     </main>
