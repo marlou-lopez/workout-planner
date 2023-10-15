@@ -1,5 +1,6 @@
 import defaultExercises from "@/assets/exercises.json";
 import ExerciseCard from "@/components/internal/exercise-card";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Exercise } from "@/types/exercises.json";
 
 const groupByFirstLetter = (exercises: Exercise[]) => {
@@ -24,24 +25,26 @@ export default function Exercises() {
       <h1 className="text-4xl py-4 font-extrabold">
         Exercises
       </h1>
-      <ul className="space-y-4">
-        {Object.entries(groupedExercises).map(([letter, exercises]) => {
-          return (
-            <li key={letter}>
-              <p className="text-sm font-bold mb-1">{letter}</p>
-              <ul className="space-y-2">
-                {exercises.map((exercise) => {
-                  return (
-                    <li key={exercise.id}> 
-                      <ExerciseCard {...exercise} />
-                    </li>
-                  )
-                })}
-              </ul>
-            </li>
-          )
-        })}
-      </ul>
+      <ScrollArea className="h-[600px]">
+        <ul className="space-y-4">
+          {Object.entries(groupedExercises).map(([letter, exercises]) => {
+            return (
+              <li key={letter}>
+                <p className="text-sm font-bold mb-1">{letter}</p>
+                <ul className="space-y-2">
+                  {exercises.map((exercise) => {
+                    return (
+                      <li key={exercise.id}> 
+                        <ExerciseCard {...exercise} />
+                      </li>
+                    )
+                  })}
+                </ul>
+              </li>
+            )
+          })}
+        </ul>
+      </ScrollArea>
     </main>
   )
 }

@@ -28,7 +28,6 @@ function CurrentDayWorkouts() {
 
 export default function Home() {
 
-  console.log("Exercises: ", exercises)
   return (
     <main>
       <div className="flex items-center justify-between">
